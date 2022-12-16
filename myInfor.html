@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ký Túc Xá</title>
+    <link rel="stylesheet" href="..\ktx.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <div class="menu">
+        <div class="logo">
+          <a href="..\dashboard.html">
+            <img src="..\img\KTX_logo.svg.png" alt="Trang chủ" />
+            <span>Ký Túc Xá</span>
+          </a>
+        </div>
+        <div class="listMenu">
+          <ul class="menuList">
+            <li class="dashboard">
+              <a href="..\dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Trang Chủ</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\rent.html">
+                <i class="fa-solid fa-house-chimney-medical"></i>
+                <span>Thuê Phòng</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\myRoom.html">
+                <i class="fa-solid fa-house-user"></i>
+                <span>Phòng Của Tôi</span>
+              </a>
+            </li>
+            <li>
+              <a id="myInfor" href="..\myInfor.html">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Thông Tin Của Tôi</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\password.html">
+                <i class="fa-solid fa-key"></i>
+                <span>Đổi Mật Khẩu</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\dormitory.html">
+                <i class="fa-solid fa-building"></i>
+                <span>Thông Tin Ký Túc Xá</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mainContent">
+        <div class="headContent">
+          <!-- <div class="notification">
+            <i id="notification" class="fa-solid fa-bell"></i>
+            <div class="notiNumber">1</div>
+            <ul id="notiOption" class="notiOption">
+              <li>
+                <span>noti 1</span>
+                <div class="newNoti"></div>
+              </li>
+              <li>
+                <span>noti 2</span>
+              </li>
+              <li>
+                <span>noti 3</span>
+              </li>
+            </ul>
+          </div> -->
+          <div class="userName" id="userName"></div>
+          <div class="userAvatar">
+            <img src="..\img\user.png" id="avatarImg1" />
+            <!-- <i class="fa-solid fa-circle-user"></i> -->
+            <!-- <div id="userAvatar"></div> -->
+            <!-- <ul id="userOption" class="userOption">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="listNow">Thông Tin Của Tôi</div>
+        <div class="bodyContent">
+          <div class="mainMyRoom">
+            <div class="myInfor">
+              <div class="myIcon">
+                <!-- <i class="fa-solid fa-circle-user" id="myAvatar"
+                  >
+                </i> -->
+                <img src="..\img\user.png" id="avatarImg2" />
+                <label for="file-input">Đổi ảnh</label>
+                <input accept="image/*" type="file" id="file-input" />
+              </div>
+              <div class="myText">
+                <div class="labelText">
+                  <label for="myId">Mã sinh viên:</label><br /><br />
+                  <label for="myName">Tên sinh viên:</label><br /><br />
+                  <label for="myGender">Giới tính:</label><br /><br />
+                  <label for="myBirthday">Ngày sinh:</label><br /><br />
+                  <label for="myAddress">Địa chỉ:</label><br /><br />
+                  <label for="myEmail">Email:</label><br /><br />
+                </div>
+                <div class="contentText">
+                  <div class="contentInput" id="contentInput">
+                    <input type="text" name="myId" id="myId" value="88888" />
+                    <input type="text" name="myName" id="myName" />
+                    <div class="genderText">
+                      <input
+                        type="radio"
+                        name="myGender"
+                        value="Nam"
+                        checked
+                      />Nam <input type="radio" name="myGender" value="Nữ" />Nữ
+                    </div>
+                    <input
+                      type="date"
+                      name="myBirthday"
+                      id="myBirthday"
+                      value="2002-03-18"
+                    />
+                    <input
+                      type="text"
+                      name="myAddress"
+                      id="myAddress"
+                      value="Lê Chân, Hải Phòng"
+                    />
+                    <input
+                      type="email"
+                      name="myEmail"
+                      id="myEmail"
+                      value="a88888@st.vimaru.edu.vn"
+                    />
+                  </div>
+                  <button type="button" id="editMyInfor">Sửa</button>
+                  <button type="button" id="saveMyInfor">Lưu</button>
+                  <!-- <button type="button" id="cancelMyInfor">Hủy</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="..\myInfor.js"></script>
+  </body>
+</html>

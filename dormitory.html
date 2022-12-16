@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ký Túc Xá</title>
+    <link rel="stylesheet" href="..\ktx.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <div class="menu">
+        <div class="logo">
+          <a href="..\dashboard.html">
+            <img src="..\img\KTX_logo.svg.png" alt="Trang chủ" />
+            <span>Ký Túc Xá</span>
+          </a>
+        </div>
+        <div class="listMenu">
+          <ul class="menuList">
+            <li class="dashboard">
+              <a href="..\dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Trang Chủ</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\rent.html">
+                <i class="fa-solid fa-house-chimney-medical"></i>
+                <span>Thuê Phòng</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\myRoom.html">
+                <i class="fa-solid fa-house-user"></i>
+                <span>Phòng Của Tôi</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\myInfor.html">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Thông Tin Của Tôi</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\password.html">
+                <i class="fa-solid fa-key"></i>
+                <span>Đổi Mật Khẩu</span>
+              </a>
+            </li>
+            <li>
+              <a href="..\dormitory.html">
+                <i class="fa-solid fa-building"></i>
+                <span>Thông Tin Ký Túc Xá</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mainContent">
+        <div class="headContent">
+          <!-- <div class="notification">
+            <i id="notification" class="fa-solid fa-bell"></i>
+            <div class="notiNumber">1</div>
+            <ul id="notiOption" class="notiOption">
+              <li>
+                <span>noti 1</span>
+                <div class="newNoti"></div>
+              </li>
+              <li>
+                <span>noti 2</span>
+              </li>
+              <li>
+                <span>noti 3</span>
+              </li>
+            </ul>
+          </div> -->
+          <div class="userName">Nguyễn Văn A</div>
+          <div class="userAvatar">
+            <div id="userAvatar"></div>
+            <img src="..\img\user.png" id="avatarImg1" />
+            <!-- <ul id="userOption" class="userOption">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="listNow">Phòng Của Tôi</div>
+        <div class="bodyContent">
+          <div class="mainMyRoom">
+            <div class="inforMyRoom">
+              <div class="roomInfor">
+                <div class="roomIcon">
+                  <i class="fa-solid fa-house-user"></i>
+                </div>
+                <div class="roomText">
+                  <p>
+                    <b>Phòng: 101</b>
+                    <br />
+                    <b>Khu: A</b>
+                    <br />
+                    Loại phòng: Phòng 460.000VND/1 người/1 tháng. Phòng 8 bạn,
+                    giường tầng, nhà vệ sinh khép kín. Trong nhà tắm có trang bị
+                    bình nóng lạnh.
+                  </p>
+                </div>
+              </div>
+              <div class="roomTime">
+                <span>Thời gian thuê</span>
+                <i class="fa-solid fa-calendar-days"></i>
+                <br /><br />
+                <div id="timeRoomRent"></div>
+              </div>
+            </div>
+            <div class="extraMyRoom">
+              <div class="extraRoom">
+                <button type="button" id="changeRoom">
+                  Đổi phòng
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+              <div class="extraTime">
+                <span
+                  >Còn lại <i class="fa-solid fa-clock-rotate-left"></i
+                ></span>
+                <div id="extraTime"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="..\myRoom.js"></script>
+  </body>
+</html>
