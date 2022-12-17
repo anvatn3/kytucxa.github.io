@@ -14,6 +14,13 @@ let dormiView = document.getElementById("dormiView");
 let avatarImg1 = document.getElementById("avatarImg1");
 let listNow = document.getElementById("listNow");
 
+let editMyInfor = document.getElementById("editMyInfor");
+let saveMyInfor = document.getElementById("saveMyInfor");
+let contentInput = document.getElementById("contentInput");
+let myId = document.getElementById("myId");
+let myName = document.getElementById("myName");
+let userName = document.getElementById("userName");
+
 listNow.innerHTML = "Trang Chủ";
 
 dbView.style.display = "";
@@ -97,6 +104,12 @@ myInfor.addEventListener("click", () => {
   miView.style.display = "";
   pcView.style.display = "none";
   dormiView.style.display = "none";
+
+  editMyInfor.style.backgroundColor = "#00cec9";
+  saveMyInfor.style.backgroundColor = "#636e72";
+  contentInput.classList.add("editDisnable");
+  editMyInfor.classList.remove("editDisnable");
+  saveMyInfor.classList.add("editDisnable");
 });
 avatarImg1.addEventListener("click", () => {
   listNow.innerHTML = "Thông Tin Của Tôi";
@@ -154,7 +167,7 @@ let rooms = [
   {
     name: "101",
     area: "D1",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -162,7 +175,7 @@ let rooms = [
   {
     name: "102",
     area: "D1",
-    price: "170",
+    price: "250",
     curPeople: "8",
     maxPeople: "8",
     status: "Không",
@@ -170,7 +183,7 @@ let rooms = [
   {
     name: "103",
     area: "D1",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -178,7 +191,7 @@ let rooms = [
   {
     name: "104",
     area: "D1",
-    price: "170",
+    price: "250",
     curPeople: "4",
     maxPeople: "8",
     status: "Có",
@@ -186,7 +199,7 @@ let rooms = [
   {
     name: "105",
     area: "D1",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -194,7 +207,7 @@ let rooms = [
   {
     name: "201",
     area: "D1",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -202,7 +215,7 @@ let rooms = [
   {
     name: "202",
     area: "D1",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -210,7 +223,7 @@ let rooms = [
   {
     name: "203",
     area: "D1",
-    price: "170",
+    price: "310",
     curPeople: "2",
     maxPeople: "8",
     status: "Có",
@@ -218,7 +231,7 @@ let rooms = [
   {
     name: "204",
     area: "D1",
-    price: "170",
+    price: "310",
     curPeople: "2",
     maxPeople: "8",
     status: "Có",
@@ -226,7 +239,7 @@ let rooms = [
   {
     name: "205",
     area: "D1",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -234,7 +247,7 @@ let rooms = [
   {
     name: "301",
     area: "D1",
-    price: "230",
+    price: "340",
     curPeople: "0",
     maxPeople: "6",
     status: "Có",
@@ -242,7 +255,7 @@ let rooms = [
   {
     name: "302",
     area: "D1",
-    price: "230",
+    price: "340",
     curPeople: "3",
     maxPeople: "6",
     status: "Có",
@@ -250,7 +263,7 @@ let rooms = [
   {
     name: "303",
     area: "D1",
-    price: "230",
+    price: "340",
     curPeople: "1",
     maxPeople: "6",
     status: "Có",
@@ -258,7 +271,7 @@ let rooms = [
   {
     name: "304",
     area: "D1",
-    price: "230",
+    price: "340",
     curPeople: "6",
     maxPeople: "6",
     status: "Không",
@@ -266,7 +279,7 @@ let rooms = [
   {
     name: "305",
     area: "D1",
-    price: "230",
+    price: "340",
     curPeople: "6",
     maxPeople: "6",
     status: "Không",
@@ -275,7 +288,7 @@ let rooms = [
   {
     name: "101",
     area: "D2",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -283,7 +296,7 @@ let rooms = [
   {
     name: "102",
     area: "D2",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -291,7 +304,7 @@ let rooms = [
   {
     name: "103",
     area: "D2",
-    price: "170",
+    price: "250",
     curPeople: "2",
     maxPeople: "8",
     status: "Có",
@@ -299,7 +312,7 @@ let rooms = [
   {
     name: "104",
     area: "D2",
-    price: "170",
+    price: "250",
     curPeople: "1",
     maxPeople: "8",
     status: "Có",
@@ -307,7 +320,7 @@ let rooms = [
   {
     name: "105",
     area: "D2",
-    price: "170",
+    price: "250",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -315,7 +328,7 @@ let rooms = [
   {
     name: "201",
     area: "D2",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -323,7 +336,7 @@ let rooms = [
   {
     name: "202",
     area: "D2",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -331,7 +344,7 @@ let rooms = [
   {
     name: "203",
     area: "D2",
-    price: "170",
+    price: "310",
     curPeople: "1",
     maxPeople: "8",
     status: "Có",
@@ -339,7 +352,7 @@ let rooms = [
   {
     name: "204",
     area: "D2",
-    price: "170",
+    price: "310",
     curPeople: "8",
     maxPeople: "8",
     status: "Không",
@@ -347,7 +360,7 @@ let rooms = [
   {
     name: "205",
     area: "D2",
-    price: "170",
+    price: "310",
     curPeople: "0",
     maxPeople: "8",
     status: "Có",
@@ -355,7 +368,7 @@ let rooms = [
   {
     name: "301",
     area: "D2",
-    price: "230",
+    price: "340",
     curPeople: "0",
     maxPeople: "6",
     status: "Có",
@@ -363,7 +376,7 @@ let rooms = [
   {
     name: "302",
     area: "D2",
-    price: "230",
+    price: "340",
     curPeople: "0",
     maxPeople: "6",
     status: "Có",
@@ -371,7 +384,7 @@ let rooms = [
   {
     name: "303",
     area: "D2",
-    price: "230",
+    price: "340",
     curPeople: "2",
     maxPeople: "6",
     status: "Có",
@@ -379,7 +392,7 @@ let rooms = [
   {
     name: "304",
     area: "D2",
-    price: "230",
+    price: "340",
     curPeople: "1",
     maxPeople: "6",
     status: "Có",
@@ -387,7 +400,7 @@ let rooms = [
   {
     name: "305",
     area: "D2",
-    price: "230",
+    price: "340",
     curPeople: "0",
     maxPeople: "6",
     status: "Có",
@@ -714,22 +727,12 @@ document.getElementById("submitRent").addEventListener("click", () => {
 });
 
 // myInfor
-let editMyInfor = document.getElementById("editMyInfor");
-let saveMyInfor = document.getElementById("saveMyInfor");
-let contentInput = document.getElementById("contentInput");
-let myId = document.getElementById("myId");
-let myName = document.getElementById("myName");
-let userName = document.getElementById("userName");
 
 myName.value = "Nguyễn Văn A";
 userName.innerHTML = myName.value;
-saveMyInfor.style.backgroundColor = "#636e72";
-
-contentInput.classList.add("editDisnable");
-editMyInfor.classList.remove("editDisnable");
-saveMyInfor.classList.add("editDisnable");
 
 myId.classList.add("editDisnable");
+
 editMyInfor.addEventListener("click", () => {
   contentInput.classList.remove("editDisnable");
   editMyInfor.classList.add("editDisnable");
@@ -805,6 +808,63 @@ savePass.addEventListener("click", () => {
   Đổi mật khẩu thành công!`;
   successRent.classList.add("showSuccessRent");
 });
+
+let dormiImgs = [
+  {
+    src: "1",
+  },
+  {
+    src: "2",
+  },
+  {
+    src: "3",
+  },
+  {
+    src: "4",
+  },
+  {
+    src: "5",
+  },
+  {
+    src: "6",
+  },
+  {
+    src: "7",
+  },
+  {
+    src: "8",
+  },
+  {
+    src: "9",
+  },
+  {
+    src: "10",
+  },
+  {
+    src: "11",
+  },
+  {
+    src: "12",
+  },
+  {
+    src: "13",
+  },
+  {
+    src: "14",
+  },
+];
+let itemImg = document.getElementById("itemImg");
+
+dormiImgs.forEach((e) => {
+  itemImg.innerHTML += `
+  <img src="../img/dormi/${e.src}.jpg">
+  `;
+});
+
+// function showDormiImg(e, i) {
+//   e = dormiImgs[i];
+// }
+
 // let userOption = document.getElementById("userOption");
 // userOption.style.display = "none";
 // let userClick = true;
