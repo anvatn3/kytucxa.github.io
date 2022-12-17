@@ -408,11 +408,10 @@ ul.menuList li span {
 .room::-webkit-scrollbar {
   width: 10px;
   background-color: #c8d6e5;
-  border-radius: 0 5px 5px 0;
 }
 .room::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #8395a7;
+  border-radius: 10px;
+  background-color: #222f3e;
 }
 
 .rooms thead {
@@ -461,23 +460,24 @@ ul.menuList li span {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #b2bec3;
   /* background-color: #dfe6e9; */
   border-radius: 5px;
 }
 .fa-circle-info {
-  color: #b2bec3;
   margin-right: 5px;
 }
 .fa-house-medical {
-  color: #b2bec3;
+  margin-left: 5px;
+}
+.fa-arrows-rotate {
   margin-left: 5px;
 }
 .optionRoom i:hover {
   color: #222f3e;
   background-color: #c8d6e5;
 }
-.roomDetail,
-.roomRent {
+.popup {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
@@ -491,7 +491,7 @@ ul.menuList li span {
   opacity: 0;
   transition: all 0.25s ease-in-out;
 }
-.showroomDetail {
+.showPopup {
   pointer-events: all;
   opacity: 1;
 }
@@ -531,6 +531,10 @@ ul.menuList li span {
 .mainDetail {
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+.mainDetail p {
+  text-align: left;
 }
 .mainDetail img {
   width: 500px;
@@ -584,6 +588,21 @@ ul.menuList li span {
 .submitRent button:hover {
   color: white;
   background-color: #00b894;
+}
+
+.roomChangePopup {
+  width: 80%;
+  height: 80%;
+  background-color: #74b9ff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-weight: 600;
+  font-size: 20px;
+}
+.roomChange {
+  width: 100%;
+  height: 95%;
 }
 .notification {
   display: flex;
@@ -663,12 +682,21 @@ ul.menuList li span {
 #dbRoomTemp {
   display: none;
 }
-.roomText {
+.roomTextMain {
   width: 60%;
   height: 100%;
   /* background-color: #0984e3; */
   padding: 10px;
   font-size: 20px;
+  text-align: center;
+}
+.roomText {
+  width: 100%;
+  height: 75%;
+  /* background-color: #0984e3; */
+  padding: 10px;
+  font-size: 20px;
+  text-align: left;
 }
 .roomTime {
   width: 100%;
@@ -720,6 +748,10 @@ ul.menuList li span {
   color: black;
   background-color: #fdcb6e;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+#changeRoom i {
+  margin-left: 5px;
 }
 #changeRoom:hover {
   color: white;
@@ -898,8 +930,8 @@ ul.menuList li span {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+#editMyInfor:hover,
 #saveMyInfor:hover,
-#cancelMyInfor:hover,
 #savePass:hover {
   color: white;
 }
@@ -966,14 +998,10 @@ ul.menuList li span {
   width: 100%;
   height: auto;
 }
-/* background-repeat: no-repeat; */
 
 .itemImg::-webkit-scrollbar,
 .dormiText p::-webkit-scrollbar {
   width: 10px;
-}
-.itemImg::-webkit-scrollbar-track,
-.dormiText p::-webkit-scrollbar-track {
   background-color: #c8d6e5;
 }
 .itemImg::-webkit-scrollbar-thumb,

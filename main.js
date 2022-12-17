@@ -413,6 +413,27 @@ let roomTextTemp = document.getElementById("roomTextTemp");
 let dbRoomTemp = document.getElementById("dbRoomTemp");
 let notification = document.getElementById("notification");
 
+let dateRent = document.getElementById("dateRent");
+let priceRent = document.getElementById("priceRent");
+
+let input = document.getElementById("searchRoom");
+let priceOption = document.getElementById("price");
+let areaOption = document.getElementById("area");
+let statusOption = document.getElementById("status");
+
+let roomDetail = document.getElementById("roomDetail");
+let roomRent = document.getElementById("roomRent");
+let resetRent = document.getElementById("resetRent");
+let roomChange = document.getElementById("roomChange");
+let changeRoom = document.getElementById("changeRoom");
+
+let dbRoom = document.getElementById("dbRoom");
+let dbTime = document.getElementById("dbTime");
+let roomText = document.getElementById("roomText");
+let timeRoomRent = document.getElementById("timeRoomRent");
+let roomPrice = document.getElementById("roomPrice");
+let timeRemaining = document.getElementById("timeRemaining");
+
 function showDetailRoom(e, i) {
   e = rooms[i];
   detailRoom.innerHTML = `
@@ -434,9 +455,7 @@ function showRentRoom(e, i) {
   Loại phòng: Phòng ${e.price}.000VND/1 người/1 tháng. Phòng ${e.maxPeople} bạn, giường
   tầng, nhà vệ sinh khép kín, tủ quần áo, điều hòa, bình nóng lạnh. <br />
   Số lượng người hiện tại : ${e.curPeople}/${e.maxPeople} <br /> <br />
-  <button type="button" id="changeRoom">
-    Đổi phòng<i class="fa-solid fa-arrows-rotate"></i>
-  </button>
+  
   `;
   dbRoomTemp.innerHTML = `${e.name} ${e.area}`;
 }
@@ -453,26 +472,24 @@ function checkRent(e, i) {
     setTimeout(removeNoti, 5000);
   } else {
     showRentRoom(e, i);
-    roomRent.classList.add("showroomDetail");
+    roomRent.classList.add("showPopup");
   }
 }
 
 document.querySelectorAll(".fa-circle-info").forEach((e) => {
   e.addEventListener("click", () => {
     showDetailRoom(e, e.id);
-    roomDetail.classList.add("showroomDetail");
+    roomDetail.classList.add("showPopup");
   });
 });
 document.querySelectorAll(".fa-house-medical").forEach((e) => {
   e.addEventListener("click", () => {
+    dateRent.innerHTML = "";
+    priceRent.innerHTML = "";
+    document.getElementById("timeRent").selectedIndex = 0;
     checkRent(e, e.id);
   });
 });
-
-let input = document.getElementById("searchRoom");
-let priceOption = document.getElementById("price");
-let areaOption = document.getElementById("area");
-let statusOption = document.getElementById("status");
 
 function tableSearch() {
   //Intialising Variables
@@ -588,26 +605,22 @@ function kindRoom() {
 }
 kindRoom();
 
-let closeDetail = document.getElementById("closeDetail");
-let closeRent = document.getElementById("closeRent");
-let roomDetail = document.getElementById("roomDetail");
-let roomRent = document.getElementById("roomRent");
-let resetRent = document.getElementById("resetRent");
-
-closeDetail.addEventListener("click", () => {
-  roomDetail.classList.remove("showroomDetail");
+document.querySelectorAll(".fa-x").forEach((e) => {
+  e.addEventListener("click", () => {
+    roomDetail.classList.remove("showPopup");
+    roomRent.classList.remove("showPopup");
+    roomChange.classList.remove("showPopup");
+  });
 });
-closeRent.addEventListener("click", () => {
-  roomRent.classList.remove("showroomDetail");
+changeRoom.addEventListener("click", () => {
+  roomChange.classList.add("showPopup");
 });
-
 function addMonths(numOfMonths, date = new Date()) {
   const dateCopy = new Date(date.getTime());
   dateCopy.setMonth(dateCopy.getMonth() + numOfMonths);
   return dateCopy;
 }
-let dateRent = document.getElementById("dateRent");
-let priceRent = document.getElementById("priceRent");
+
 dateRent.style.color = "#ee5253";
 priceRent.style.color = "#ffeaa7";
 function timeRent2() {
@@ -693,25 +706,19 @@ resetRent.addEventListener("click", () => {
   dateRent.innerHTML = "";
   priceRent.innerHTML = "";
 });
-let dbRoom = document.getElementById("dbRoom");
-let dbTime = document.getElementById("dbTime");
+
 dbRoom.innerHTML = `<b>Bạn chưa thuê phòng nào!</b>`;
 dbTime.innerHTML = `<b>Bạn chưa có thời gian thuê!</b>`;
 
-let roomText = document.getElementById("roomText");
 roomText.innerHTML = `<br /> <br /> <br /> <br /> <b>Bạn chưa thuê phòng nào!</b>`;
-let timeRoomRent = document.getElementById("timeRoomRent");
-let roomPrice = document.getElementById("roomPrice");
-
-let timeRemaining = document.getElementById("timeRemaining");
 
 document.getElementById("submitRent").addEventListener("click", () => {
   if (priceRent.innerHTML == "") {
     dateRent.innerHTML = "Chọn thời gian thuê";
   } else {
-    roomRent.classList.remove("showroomDetail");
+    roomRent.classList.remove("showPopup");
     notification.style.backgroundColor = "#00b894";
-    notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-check"></i>Yêu cầu đã được gửi đi!`;
+    notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-check"></i>Thuê phòng thành công!`;
     notification.classList.add("showNoti");
     setTimeout(removeNoti, 5000);
     roomText.innerHTML = roomTextTemp.innerHTML;
@@ -808,7 +815,7 @@ savePass.addEventListener("click", () => {
   Đổi mật khẩu thành công!`;
   successRent.classList.add("showSuccessRent");
 });
-
+// dormitory
 let dormiImgs = [
   {
     src: "1",
