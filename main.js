@@ -316,13 +316,14 @@ document.querySelectorAll(".btnRoomInfor").forEach((e) => {
     roomDetail.classList.add("showPopup");
   });
 });
-
+let rentedRoom;
 document.querySelectorAll(".btnRoomRent").forEach((e) => {
   e.addEventListener("click", () => {
     dateRent.innerHTML = "";
     priceRent.innerHTML = "";
     document.getElementById("timeRent").selectedIndex = 0;
     checkRent(e, e.id);
+    rentedRoom = e.id;
   });
 });
 //  rentPopup
@@ -607,7 +608,6 @@ function checkRent(e, i) {
       notification.style.color = "white";
       notification.style.backgroundColor = "#d63031";
       notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-xmark"></i> Phòng đã đầy`;
-
       notification.classList.add("showNoti");
       setTimeout(removeNoti, 3000);
     } else {
@@ -724,6 +724,7 @@ document.getElementById("submitRent").addEventListener("click", () => {
     dateRent.innerHTML = "Chọn thời gian thuê";
   } else {
     roomRent.classList.remove("showPopup");
+    notification.style.color = "white";
     notification.style.backgroundColor = "#00b894";
     notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-check"></i>Thuê phòng thành công!`;
     notification.classList.add("showNoti");
@@ -737,13 +738,23 @@ document.getElementById("submitRent").addEventListener("click", () => {
     dbTime.innerHTML = dateRent.innerHTML;
     timeRoomRent.innerHTML = dateRent.innerHTML;
     roomPrice.innerHTML = priceRent.innerHTML;
+    console.log(rentedRoom);
   }
 });
 
 // myRoom
 roomText.innerHTML = `<br /> <br /> <br /> <br /> <b>Bạn chưa thuê phòng nào!</b>`;
 changeRoom.addEventListener("click", () => {
-  roomChange.classList.add("showPopup");
+  if (dbRoom.innerHTML == `<b>Bạn chưa thuê phòng nào!</b>`) {
+    notification.style.color = "black";
+    notification.style.backgroundColor = "#fdcb6e";
+    notification.innerHTML = `
+      <i class="fa-solid fa-house-medical-circle-exclamation"></i> Bạn chưa thuê phòng nào!`;
+    notification.classList.add("showNoti");
+    setTimeout(removeNoti, 3000);
+  } else {
+    roomChange.classList.add("showPopup");
+  }
 });
 //  filter
 let table2 = document.getElementById("rooms2");
@@ -877,10 +888,19 @@ document.querySelectorAll(".btnRoomInfor2").forEach((e) => {
 });
 document.querySelectorAll(".btnRoomRent2").forEach((e) => {
   e.addEventListener("click", () => {
-    dateRent2.innerHTML = "";
-    priceRent2.innerHTML = "";
-    document.getElementById("timeRent").selectedIndex = 0;
-    checkRent2(e, e.id);
+    if (e.id == rentedRoom) {
+      notification.style.color = "black";
+      notification.style.backgroundColor = "#fdcb6e";
+      notification.innerHTML = `
+        <i class="fa-solid fa-house-medical-circle-exclamation"></i> Bạn đang thuê phòng này!`;
+      notification.classList.add("showNoti");
+      setTimeout(removeNoti, 3000);
+    } else {
+      dateRent2.innerHTML = "";
+      priceRent2.innerHTML = "";
+      document.getElementById("timeRent").selectedIndex = 0;
+      checkRent2(e, e.id);
+    }
   });
 });
 //  rentPopup
@@ -1263,8 +1283,9 @@ document.getElementById("submitRent2").addEventListener("click", () => {
     dateRent2.innerHTML = "Chọn thời gian thuê";
   } else {
     roomRent2.classList.remove("showPopup");
+    notification.style.color = "white";
     notification.style.backgroundColor = "#00b894";
-    notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-check"></i>Thuê phòng thành công!`;
+    notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-check"></i>Đổi phòng thành công!`;
     notification.classList.add("showNoti");
     setTimeout(removeNoti, 5000);
     roomText.innerHTML = roomTextTemp.innerHTML;
