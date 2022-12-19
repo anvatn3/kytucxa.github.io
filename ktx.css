@@ -302,7 +302,7 @@ ul.menuList li span {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  color: #0abde3;
+  color: #222f3e;
 }
 #dbTime {
   width: 100%;
@@ -311,7 +311,7 @@ ul.menuList li span {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  color: #ee5253;
+  color: #48dbfb;
 }
 #dbTime i {
   margin: 0 10px;
@@ -707,8 +707,9 @@ ul.menuList li span {
   height: 75%;
   /* background-color: #0984e3; */
   padding: 10px;
-  font-size: 20px;
+  font-size: 22px;
   text-align: left;
+  font-weight: 600;
 }
 .roomTime {
   width: 100%;

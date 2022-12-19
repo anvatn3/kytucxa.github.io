@@ -316,6 +316,7 @@ document.querySelectorAll(".btnRoomInfor").forEach((e) => {
     roomDetail.classList.add("showPopup");
   });
 });
+
 document.querySelectorAll(".btnRoomRent").forEach((e) => {
   e.addEventListener("click", () => {
     dateRent.innerHTML = "";
@@ -338,7 +339,7 @@ let rooms = [
     name: "102",
     area: "D1",
     price: "250",
-    curPeople: 0,
+    curPeople: 8,
     maxPeople: "8",
     status: "Không",
   },
@@ -601,15 +602,25 @@ function removeNoti() {
 }
 function checkRent(e, i) {
   e = rooms[i];
-  if (e.curPeople == e.maxPeople) {
-    notification.style.backgroundColor = "#d63031";
-    notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-xmark"></i> Phòng đã đầy`;
+  if (dbRoom.innerHTML == `<b>Bạn chưa thuê phòng nào!</b>`) {
+    if (e.curPeople == e.maxPeople) {
+      notification.style.color = "white";
+      notification.style.backgroundColor = "#d63031";
+      notification.innerHTML = `<i class="fa-solid fa-house-medical-circle-xmark"></i> Phòng đã đầy`;
 
-    notification.classList.add("showNoti");
-    setTimeout(removeNoti, 5000);
+      notification.classList.add("showNoti");
+      setTimeout(removeNoti, 3000);
+    } else {
+      showRentRoom(e, i);
+      roomRent.classList.add("showPopup");
+    }
   } else {
-    showRentRoom(e, i);
-    roomRent.classList.add("showPopup");
+    notification.style.color = "black";
+    notification.style.backgroundColor = "#fdcb6e";
+    notification.innerHTML = `
+      <i class="fa-solid fa-house-medical-circle-exclamation"></i> Bạn đã có phòng!`;
+    notification.classList.add("showNoti");
+    setTimeout(removeNoti, 3000);
   }
 }
 document.querySelectorAll(".closePopup").forEach((e) => {
@@ -731,9 +742,9 @@ document.getElementById("submitRent").addEventListener("click", () => {
 
 // myRoom
 roomText.innerHTML = `<br /> <br /> <br /> <br /> <b>Bạn chưa thuê phòng nào!</b>`;
-changeRoom.addEventListener("click", () => {
-  roomChange.classList.add("showPopup");
-});
+// changeRoom.addEventListener("click", () => {
+//   roomChange.classList.add("showPopup");
+// });
 //  filter
 let table2 = document.getElementById("rooms2");
 let input2 = document.getElementById("searchRoom2");
