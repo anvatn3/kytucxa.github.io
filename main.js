@@ -742,9 +742,9 @@ document.getElementById("submitRent").addEventListener("click", () => {
 
 // myRoom
 roomText.innerHTML = `<br /> <br /> <br /> <br /> <b>Bạn chưa thuê phòng nào!</b>`;
-// changeRoom.addEventListener("click", () => {
-//   roomChange.classList.add("showPopup");
-// });
+changeRoom.addEventListener("click", () => {
+  roomChange.classList.add("showPopup");
+});
 //  filter
 let table2 = document.getElementById("rooms2");
 let input2 = document.getElementById("searchRoom2");
