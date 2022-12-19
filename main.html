@@ -718,6 +718,9 @@
                   <button type="button" id="changeRoom">
                     Đổi phòng<i class="fa-solid fa-arrows-rotate"></i>
                   </button>
+                  <button type="button" id="extendRoom">
+                    Gia hạn<i class="fa-solid fa-hourglass-start"></i>
+                  </button>
                 </div>
               </div>
               <div class="roomTime">
@@ -1631,7 +1634,7 @@
           </div>
           <div class="mainRent">
             <form class="formRent" action="">
-              <div class="headFormRent"><b>THUÊ PHÒNG</b></div>
+              <div class="headFormRent"><b>ĐỔI PHÒNG</b></div>
               <p id="rentRoom2">
                 <!-- Tên phòng : 101 <br />
                 Khu : A <br /> -->
@@ -1657,11 +1660,58 @@
                 >
                 <br />
                 <input type="radio" name="payment2" id="cash2" />
-                <label for="cash2">Tiền mặt</label>
+                <label for="cash2">Tiền mặt</label> <br />
+                <span style="color: #ee5253; font-weight: 500"
+                  >Phòng sẽ được kích hoạt sau thời gian ở phòng hiện tại!</span
+                >
               </div>
+
               <div class="submitRent">
                 <button type="reset" id="resetRent2">Đặt lại</button>
-                <button type="button" id="submitRent2">Thuê</button>
+                <button type="button" id="submitRent2">Đổi Phòng</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="popup" id="roomExtend">
+        <div class="roomRentPopup">
+          <div class="headRent">
+            <i class="fa-solid fa-x closePopup"></i>
+          </div>
+          <div class="mainRent">
+            <form class="formRent" action="">
+              <div class="headFormRent"><b>THUÊ PHÒNG</b></div>
+              <p id="rentRoom3">
+                <!-- Tên phòng : 101 <br />
+                Khu : A <br /> -->
+              </p>
+              <label for="">Thời gian thuê:</label>
+              <select name="timeRent" id="timeRent3" onchange="TimeRent3()">
+                <option value="none">Thời gian</option>
+                <option value="1 tháng">1 tháng</option>
+                <option value="2 tháng">2 tháng</option>
+                <option value="3 tháng">3 tháng</option>
+                <option value="6 tháng">6 tháng</option>
+                <option value="1 năm">1 năm</option>
+              </select>
+              <div id="dateRent3" class="dateRent"></div>
+              <label for="">Giá:</label>
+              <span id="priceRent3"></span>
+              <div class="payRent">
+                <span>Phương thức thanh toán:</span>
+                <br />
+                <input type="radio" name="payment" id="transfer3" checked />
+                <label for="transfer3"
+                  >Chuyển khoản (Ghi rõ tên + mã sinh viên)</label
+                >
+                <br />
+                <input type="radio" name="payment" id="cash3" />
+                <label for="cash3">Tiền mặt</label>
+              </div>
+              <div class="submitRent">
+                <button type="reset" id="resetRent3">Đặt lại</button>
+                <button type="button" id="submitRent3">Gia hạn</button>
               </div>
             </form>
           </div>

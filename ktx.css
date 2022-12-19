@@ -553,7 +553,7 @@ ul.menuList li span {
   height: auto;
 }
 .roomRentPopup {
-  width: 520px;
+  width: 540px;
   height: 420px;
   background-color: #74b9ff;
   padding: 10px;
@@ -751,23 +751,27 @@ ul.menuList li span {
   color: #feca57;
   margin-top: 50px;
 }
-#changeRoom {
+#changeRoom,
+#extendRoom {
   width: 150px;
   height: 50px;
   outline: 0;
   border: 0;
   box-shadow: 0 3px 1px 2px black;
   border-radius: 10px;
+  margin-right: 5px;
   font-size: 18px;
   color: black;
   background-color: #fdcb6e;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-#changeRoom i {
+#changeRoom i,
+#extendRoom i {
   margin-left: 5px;
 }
-#changeRoom:hover {
+#changeRoom:hover,
+#extendRoom:hover {
   color: white;
   background-color: #0984e3;
 }
